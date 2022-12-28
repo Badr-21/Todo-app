@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /*## Colors
+    ### Primary*/
+    --Bright-Blue: hsl(220, 98%, 61%);
+    --Check-Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+    /*### Neutral
+    ### Light Theme*/
+    --Very-Light-Gray: hsl(0, 0%, 98%);
+    --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+    --Light-Grayish-Blue: hsl(233, 11%, 84%);
+    --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+    --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+    /*### Dark Theme*/
+    --Very-Dark-Blue: hsl(235, 21%, 11%);
+    --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+    --Light-Grayish-Blue: hsl(234, 39%, 85%);
+    --Light-Grayish-Blue /*(hover)*/: hsl(236, 33%, 92%);
+    --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+    --Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+    --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    width: 100vw;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+    background-image: url('images/bg-desktop-dark.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--Very-Dark-Blue);
+}
+
+.header {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header img{
+    align-self: center;
+}
+
+.container {
+    width: 40%;
+}
+
+.container input {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--Very-Dark-Desaturated-Blue);
+    outline: none;
+    border: none;
+}
+
+.container .items-selection {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .items-selection .selection {
+    display: flex;
+}
+
+.container .items-selection .selection p {
+    margin-left: 1rem;
+}
