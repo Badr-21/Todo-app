@@ -1,11 +1,11 @@
-* {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     /*## Colors
     ### Primary*/
     --Bright-Blue: hsl(220, 98%, 61%);
-    --Check-Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+    --Check-Background: linear-gradient(to bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
     /*### Neutral
     ### Light Theme*/
     --Very-Light-Gray: hsl(0, 0%, 98%);
@@ -16,11 +16,11 @@
     /*### Dark Theme*/
     --Very-Dark-Blue: hsl(235, 21%, 11%);
     --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
-    --Light-Grayish-Blue: hsl(234, 39%, 85%);
-    --Light-Grayish-Blue /*(hover)*/: hsl(236, 33%, 92%);
+    --Light-Grayish-Blue1: hsl(234, 39%, 85%);
+    --Light-Grayish-Blue2 /*(hover)*/: hsl(236, 33%, 92%);
     --Dark-Grayish-Blue: hsl(234, 11%, 52%);
-    --Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
-    --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+    --Very-Dark-Grayish-Blue1: hsl(233, 14%, 35%);
+    --Very-Dark-Grayish-Blue2: hsl(237, 14%, 26%);
 }
 
 body {
@@ -33,7 +33,7 @@ body {
     row-gap: 2rem;
     background-image: url('images/bg-desktop-dark.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 40%;
     background-color: var(--Very-Dark-Blue);
 }
 
@@ -43,7 +43,13 @@ body {
     justify-content: space-between;
 }
 
-.header img{
+header h1 {
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    color: white;
+}
+
+.header img {
     align-self: center;
 }
 
@@ -51,24 +57,115 @@ body {
     width: 40%;
 }
 
-.container input {
+.container .input {
     width: 100%;
-    padding: 1rem;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
     background-color: var(--Very-Dark-Desaturated-Blue);
+    border-radius: .3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.container .input > div {
+    width: 1.1rem;
+    height: 1.1rem;
+    padding: 0rem;
+    border-radius: 50%;
+    border: 0.0625rem solid var(--Very-Dark-Grayish-Blue2);
+}
+
+.container .input input {
+    width: 90%;
+    padding: 1rem 0;
+    font-size: 1.125rem;
+    color: var(--Light-Grayish-Blue1);
+    background-color: var(--Very-Dark-Desaturated-Blue);
+    border-radius: 0 .3rem .3rem 0;
     outline: none;
     border: none;
 }
 
-.container .items-selection {
+.container .todo-items {
+    width: 100%;
+    color: var(--Light-Grayish-Blue1);
+    background-color: var(--Very-Dark-Desaturated-Blue);
+    border-radius: .3rem;
+}
+
+.container .todo-items .todo-item {
+    width: 100%;
     padding: 1rem;
+    border-bottom: 0.0625rem solid var(--Very-Dark-Grayish-Blue2);
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.container .todo-items .todo-item > .image {
+    width: auto
+}
+.container .todo-items .todo-item .image img {
+    width: 80%;
+    display: none;
+}
+
+.container .todo-items .todo-item .text-item {
+    width: 85%;
+}
+
+.container .todo-items .todo-item.complete .text-item {
+    color: var(--Very-Dark-Grayish-Blue1);
+    text-decoration: line-through;
+}
+
+.container .todo-items .todo-item .icon-complete {
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    border: 0.0625rem solid var(--Very-Dark-Grayish-Blue2);
+}
+
+.container .todo-items .todo-item.complete .icon-complete {
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    border: 0.0625rem solid var(--Very-Dark-Grayish-Blue2);
+    background-image: url(images/icon-check.svg), var(--Check-Background);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 55%, 100%;
+}
+
+.container .todo-items .items-selection {
+    padding: 1rem;
+    font-size: 0.875rem;
     display: flex;
     justify-content: space-between;
+    color: var(--Very-Dark-Grayish-Blue1);
 }
 
-.container .items-selection .selection {
+.container .todo-items .items-selection .selection {
     display: flex;
 }
 
-.container .items-selection .selection p {
+.container .todo-items .items-selection .selection p {
     margin-left: 1rem;
+}
+
+@media(hover: hover) {
+    .container .todo-items .todo-item:hover .image img {
+        display: block;
+    }
+
+    .container .todo-items .todo-item .icon-complete:hover,
+    .container .todo-items .todo-item:hover .image img,
+    .container .todo-items .todo-item .text-item:hover,
+    .container .todo-items .items-selection .selection p:hover,
+    .container .todo-items .items-selection .clear-completed:hover {
+        cursor: pointer;
+    }
+
 }
