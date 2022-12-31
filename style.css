@@ -166,6 +166,7 @@ header h1 {
         display: block;
     }
 
+    .header img:hover,
     .container .todo-items .todo-item .icon-completed:hover,
     .container .todo-items .todo-item:hover .image img,
     .container .todo-items .todo-item .text-item:hover,

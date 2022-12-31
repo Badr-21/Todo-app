@@ -1,10 +1,27 @@
+const toggle = document.querySelector('img.switch')
 const input = document.querySelector('input');
 const todoItems = document.querySelector('.todo-items')
 const selections = Array.from(document.querySelectorAll('.selection p'));
 const items = Array.from(document.querySelectorAll('.todo-item'));
 const itemsActive = document.getElementsByClassName('todo-item active');
 const itemsLeft = document.querySelector(".items-left");
+const itemsCompleted = document.getElementsByClassName('todo-item completed');
+const clearCompleted = document.querySelector('.clear-completed')
+console.log(toggle)
 
+const switchTheme = (e) => {
+    if(e.alt === 'icon sun') {
+        e.src = 'images/icon-moon.svg'
+        e.alt = 'icon moon'
+    }else {
+        e.src = 'images/icon-sun.svg'
+        e.alt = 'icon sun'
+    }
+}
+
+const itemCount = () => {
+    itemsLeft.innerText = itemsActive.length
+}
 
 const selectFilter = (selection) => {
     selections.forEach(selection => {
@@ -22,10 +39,6 @@ const itemFilter = (item) => {
     })
 }
 
-const itemCount = () => {
-    itemsLeft.innerText = itemsActive.length
-}
-
 const itemCompleted = (ele) => {
     if(ele.parentElement.classList.contains('completed')) {
         ele.parentElement.classList.remove('completed')
@@ -34,6 +47,12 @@ const itemCompleted = (ele) => {
         ele.parentElement.classList.remove('active')
         ele.parentElement.classList.add('completed')
     }
+}
+
+const itemsClear = () => {
+    Array.from(itemsCompleted).forEach(item => {
+       item.remove()
+    })
 }
 
 const itemAdd = () => {
@@ -62,12 +81,23 @@ const itemDelete = (ele) => {
     ele.parentElement.parentElement.remove()
 }
 
+
+
+toggle.addEventListener('click', e => {
+    switchTheme(e.target)
+    console.log(e.target.alt)
+})
+
 selections.forEach(selection => {
     selection.addEventListener('click', e => {
         selectFilter(e.target)
         itemFilter(e.target)
         itemCount()
     })
+})
+
+clearCompleted.addEventListener('click', () => {
+    itemsClear()
 })
 
 input.addEventListener('keypress', e => {
@@ -82,9 +112,6 @@ document.addEventListener('click', e => {
         itemCompleted(e.target)
         itemCount()
     }
-})
-
-document.addEventListener('click', e => {
     if(e.target.parentElement.classList.contains("image")) {
         itemDelete(e.target)
         itemCount()
