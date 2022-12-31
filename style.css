@@ -34,6 +34,7 @@ body {
     background-image: url('images/bg-desktop-dark.jpg');
     background-repeat: no-repeat;
     background-size: 100% 40%;
+    background-attachment: fixed;
     background-color: var(--Very-Dark-Blue);
 }
 
@@ -116,19 +117,19 @@ header h1 {
     width: 85%;
 }
 
-.container .todo-items .todo-item.complete .text-item {
+.container .todo-items .todo-item.completed .text-item {
     color: var(--Very-Dark-Grayish-Blue1);
     text-decoration: line-through;
 }
 
-.container .todo-items .todo-item .icon-complete {
+.container .todo-items .todo-item .icon-completed {
     width: 1.1rem;
     height: 1.1rem;
     border-radius: 50%;
     border: 0.0625rem solid var(--Very-Dark-Grayish-Blue2);
 }
 
-.container .todo-items .todo-item.complete .icon-complete {
+.container .todo-items .todo-item.completed .icon-completed {
     width: 1.1rem;
     height: 1.1rem;
     border-radius: 50%;
@@ -155,12 +156,17 @@ header h1 {
     margin-left: 1rem;
 }
 
+.container .todo-items .items-selection .selection p.activated,
+.container .todo-items .items-selection .selection .all.activated {
+    color: var(--Bright-Blue);
+}
+
 @media(hover: hover) {
     .container .todo-items .todo-item:hover .image img {
         display: block;
     }
 
-    .container .todo-items .todo-item .icon-complete:hover,
+    .container .todo-items .todo-item .icon-completed:hover,
     .container .todo-items .todo-item:hover .image img,
     .container .todo-items .todo-item .text-item:hover,
     .container .todo-items .items-selection .selection p:hover,
