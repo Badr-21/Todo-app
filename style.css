@@ -26,7 +26,7 @@
 body {
     font-family: 'Josefin Sans', sans-serif;
     width: 100vw;
-    padding: 3rem;
+    padding: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,8 +38,13 @@ body {
     background-color: var(--Very-Dark-Blue);
 }
 
+body.light-mode {
+    background-image: url('images/bg-desktop-light.jpg');
+    background-color: var(--Very-Light-Grayish-Blue);
+}
+
 .header {
-    width: 40%;
+    width: 29rem;
     display: flex;
     justify-content: space-between;
 }
@@ -47,7 +52,7 @@ body {
 header h1 {
     text-transform: uppercase;
     letter-spacing: .5rem;
-    color: white;
+    color: var(--Very-Light-Gray);
 }
 
 .header img {
@@ -55,7 +60,7 @@ header h1 {
 }
 
 .container {
-    width: 40%;
+    width: 29rem;
 }
 
 .container .input {
@@ -70,6 +75,10 @@ header h1 {
     column-gap: 1rem;
 }
 
+.container.light-mode .input {
+    background-color: var(--Very-Light-Gray);
+}
+
 .container .input > div {
     width: 1.1rem;
     height: 1.1rem;
@@ -78,15 +87,25 @@ header h1 {
     border: 0.0625rem solid var(--Very-Dark-Grayish-Blue2);
 }
 
+.container.light-mode .input > div {
+    border: 0.0625rem solid var(--Light-Grayish-Blue2);
+}
+
 .container .input input {
     width: 90%;
     padding: 1rem 0;
     font-size: 1.125rem;
     color: var(--Light-Grayish-Blue1);
+    caret-color: var(--Bright-Blue);
     background-color: var(--Very-Dark-Desaturated-Blue);
     border-radius: 0 .3rem .3rem 0;
     outline: none;
     border: none;
+}
+
+.container.light-mode .input input {
+    background-color: var(--Very-Light-Gray);
+    color: var(--Very-Dark-Grayish-Blue);
 }
 
 .container .todo-items {
@@ -94,6 +113,13 @@ header h1 {
     color: var(--Light-Grayish-Blue1);
     background-color: var(--Very-Dark-Desaturated-Blue);
     border-radius: .3rem;
+    box-shadow: 0rem .2rem 2rem rgba(5, 5, 5, 0.5);
+}
+
+.container.light-mode .todo-items {
+    color: var(--Very-Dark-Grayish-Blue);
+    background-color: var(--Very-Light-Gray);
+    box-shadow: 0rem .2rem 2rem rgba(90, 88, 88, 0.5);
 }
 
 .container .todo-items .todo-item {
@@ -103,6 +129,10 @@ header h1 {
     display: flex;
     align-items: center;
     column-gap: 1rem;
+}
+
+.container.light-mode .todo-items .todo-item {
+    border-bottom: 0.0625rem solid var(--Very-Light-Grayish-Blue);
 }
 
 .container .todo-items .todo-item > .image {
@@ -122,11 +152,19 @@ header h1 {
     text-decoration: line-through;
 }
 
+.container.light-mode .todo-items .todo-item.completed .text-item {
+    color: var(--Light-Grayish-Blue);
+}
+
 .container .todo-items .todo-item .icon-completed {
     width: 1.1rem;
     height: 1.1rem;
     border-radius: 50%;
     border: 0.0625rem solid var(--Very-Dark-Grayish-Blue2);
+}
+
+.container.container.light-mode .todo-items .todo-item .icon-completed {
+    border: 0.0625rem solid var(--Light-Grayish-Blue2);
 }
 
 .container .todo-items .todo-item.completed .icon-completed {
@@ -146,6 +184,10 @@ header h1 {
     display: flex;
     justify-content: space-between;
     color: var(--Very-Dark-Grayish-Blue1);
+}
+
+.container.light-mode .todo-items .items-selection {
+    color: var(--Dark-Grayish-Blue);
 }
 
 .container .todo-items .items-selection .selection {
@@ -175,4 +217,29 @@ header h1 {
         cursor: pointer;
     }
 
+    .container .todo-items .items-selection .selection p:hover,
+    .container .todo-items .items-selection .clear-completed:hover {
+        color: var(--Light-Grayish-Blue2);
+    }
+
+    .container.light-mode .todo-items .items-selection .selection p:hover,
+    .container.light-mode .todo-items .items-selection .clear-completed:hover {
+        color: var(--Very-Dark-Grayish-Blue);
+    }
 }
+
+@media(max-width: 510px) {
+
+    body  {
+        padding: 4rem 0;
+    }
+
+    .header {
+        width: 90%;
+    }
+
+    .container {
+        width: 90%;
+    }
+}
+

@@ -1,21 +1,26 @@
-const toggle = document.querySelector('img.switch')
+const body = document.querySelector('body');
+const mainContainer = document.querySelector('main.container');
+const toggle = document.querySelector('img.switch');
 const input = document.querySelector('input');
-const todoItems = document.querySelector('.todo-items')
+const todoItems = document.querySelector('.todo-items');
 const selections = Array.from(document.querySelectorAll('.selection p'));
 const items = Array.from(document.querySelectorAll('.todo-item'));
 const itemsActive = document.getElementsByClassName('todo-item active');
 const itemsLeft = document.querySelector(".items-left");
 const itemsCompleted = document.getElementsByClassName('todo-item completed');
-const clearCompleted = document.querySelector('.clear-completed')
-console.log(toggle)
+const clearCompleted = document.querySelector('.clear-completed');
 
 const switchTheme = (e) => {
     if(e.alt === 'icon sun') {
         e.src = 'images/icon-moon.svg'
         e.alt = 'icon moon'
+        body.classList.add('light-mode')
+        mainContainer.classList.add('light-mode')
     }else {
         e.src = 'images/icon-sun.svg'
         e.alt = 'icon sun'
+        body.classList.remove('light-mode')
+        mainContainer.classList.remove('light-mode')
     }
 }
 
