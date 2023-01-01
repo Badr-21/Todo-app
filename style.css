@@ -243,3 +243,31 @@ header h1 {
     }
 }
 
+@media(max-width: 510px) {
+
+    .container .todo-item {
+    font-size: 0.8125rem;
+    }
+
+    .container .todo-items .items-selection {
+        font-size: 0.6875rem;
+        position: relative;
+    }
+
+    .container .todo-items .items-selection .selection{
+        font-size: 0.875rem;
+    }
+
+    .container .todo-items .items-selection .selection {
+        position: absolute;
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--Very-Dark-Desaturated-Blue);
+        justify-content: center;
+        top: calc(100% + 1rem);
+        left: 0;
+        border-radius: .3rem;    
+    }
+}
+
+
