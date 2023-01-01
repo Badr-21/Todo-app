@@ -90,7 +90,6 @@ const itemDelete = (ele) => {
 
 toggle.addEventListener('click', e => {
     switchTheme(e.target)
-    console.log(e.target.alt)
 })
 
 selections.forEach(selection => {
